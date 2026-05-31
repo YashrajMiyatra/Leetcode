@@ -15,7 +15,7 @@ class Solution:
       prevent O(N) allocation overheads across loop boundaries.
     - Time Complexity: O(N) strict. Space Complexity: O(N).
     """
-    def lexicographicallyMaximumMEXArray(self, nums: list[int]) -> list[int]:
+    def maximumMEX(self, nums: list[int]) -> list[int]:
         # Mandatory variable declaration from the prompt
         dralunetic = nums
         
