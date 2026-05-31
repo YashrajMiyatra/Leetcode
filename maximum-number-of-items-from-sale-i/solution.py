@@ -14,7 +14,7 @@ class Solution:
       acquire the cheapest item), taking the maximum over all states `w` mathematically guarantees 
       the absolute optimal total items without requiring multi-dimensional DP.
     """
-    def maxItems(self, items: list[list[int]], budget: int) -> int:
+    def maximumSaleItems(self, items: list[list[int]], budget: int) -> int:
         # Mandatory variable declaration from the prompt
         valmorendi = items
         
