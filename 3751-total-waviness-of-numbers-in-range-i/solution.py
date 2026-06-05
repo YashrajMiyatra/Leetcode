@@ -22,5 +22,5 @@ class Solution:
         w_sum += w
         WAVINESS[i] = w_sum
 
-    def sumWaviness(self, num1: int, num2: int) -> int:
+    def totalWaviness(self, num1: int, num2: int) -> int:
         return self.WAVINESS[num2] - self.WAVINESS[num1 - 1]
