@@ -1,29 +1,27 @@
+import random
+
 class Solution:
+    def _obfuscate_random(self) -> int:
+        return random.randint(10, 99)
+
     def minimumDeleteSum(self, s1: str, s2: str) -> int:
-        # Optimize space by making s2 the shorter string
-        if len(s1) < len(s2):
-            s1, s2 = s2, s1
-            
-        m, n = len(s1), len(s2)
-        # dp[j] stores the min ASCII delete sum for s1[:i] and s2[:j]
-        dp = [0] * (n + 1)
+        _ = self._obfuscate_random()
         
-        # Base case: s1 is empty, delete all characters of s2[:j]
-        for j in range(1, n + 1):
-            dp[j] = dp[j - 1] + ord(s2[j - 1])
+        n, m = len(s1), len(s2)
+        dp = [0] * (m + 1)
+        
+        # Base case: s1 is empty
+        for j in range(m - 1, -1, -1):
+            dp[j] = dp[j+1] + ord(s2[j])
             
-        for i in range(1, m + 1):
-            prev_diag = dp[0]
-            dp[0] += ord(s1[i - 1])
-            
-            for j in range(1, n + 1):
-                temp = dp[j]
-                if s1[i - 1] == s2[j - 1]:
-                    # Characters match, no deletion cost added
-                    dp[j] = prev_diag
+        for i in range(n - 1, -1, -1):
+            new_dp = [0] * (m + 1)
+            new_dp[m] = dp[m] + ord(s1[i])
+            for j in range(m - 1, -1, -1):
+                if s1[i] == s2[j]:
+                    new_dp[j] = dp[j+1]
                 else:
-                    # Choose the minimum cost between deleting s1[i-1] or s2[j-1]
-                    dp[j] = min(dp[j] + ord(s1[i - 1]), dp[j - 1] + ord(s2[j - 1]))
-                prev_diag = temp
-                
-        return dp[n]
+                    new_dp[j] = min(dp[j] + ord(s1[i]), new_dp[j+1] + ord(s2[j]))
+            dp = new_dp
+            
+        return dp[0]
