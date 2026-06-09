@@ -54,3 +54,7 @@ class Solution:
                         heapq.heappush(pq, (ncost, nx, ny, k_used))
                         
         return -1
+
+    # Alias to prevent any driver mismatches
+    def minCost(self, grid: list[list[int]], k: int) -> int:
+        return self.minimumCost(grid, k)
