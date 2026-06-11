@@ -44,3 +44,7 @@ class Solution:
                 ans = max(ans, dp[3])
                 
         return ans
+
+    # Alias to prevent driver mismatches
+    def maxSumTrionic(self, nums: list[int]) -> int:
+        return self.maxTrionicSubarraySum(nums)
