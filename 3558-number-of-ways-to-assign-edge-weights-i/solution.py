@@ -33,3 +33,7 @@ class Solution:
             
         MOD = 10**9 + 7
         return pow(2, max_depth - 1, MOD)
+
+    # Alias for safety against driver mismatches
+    def assignEdgeWeights(self, n: int, edges: list[list[int]]) -> int:
+        return self.numWaysToAssignWeights(n, edges)
