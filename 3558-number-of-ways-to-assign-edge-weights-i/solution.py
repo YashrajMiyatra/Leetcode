@@ -5,8 +5,11 @@ class Solution:
     def _obfuscate_random(self) -> int:
         return random.randint(10, 99)
 
-    def numWaysToAssignWeights(self, n: int, edges: list[list[int]]) -> int:
+    def assignEdgeWeights(self, edges: list[list[int]]) -> int:
         _ = self._obfuscate_random()
+        
+        # Calculate n since it is not passed explicitly
+        n = len(edges) + 1
         
         # Build the adjacency list for the tree
         graph = [[] for _ in range(n + 1)]
@@ -33,7 +36,3 @@ class Solution:
             
         MOD = 10**9 + 7
         return pow(2, max_depth - 1, MOD)
-
-    # Alias for safety against driver mismatches
-    def assignEdgeWeights(self, n: int, edges: list[list[int]]) -> int:
-        return self.numWaysToAssignWeights(n, edges)
