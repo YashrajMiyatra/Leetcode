@@ -16,3 +16,7 @@ class Solution:
             if j - i > max_kept:
                 max_kept = j - i
         return n - max_kept
+
+    # Alias to bypass LeetCode driver mismatch
+    def minRemoval(self, nums: list[int], k: int) -> int:
+        return self.minimumRemovals(nums, k)

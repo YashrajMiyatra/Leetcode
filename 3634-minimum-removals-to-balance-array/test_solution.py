@@ -6,13 +6,13 @@ class TestSolution(unittest.TestCase):
         self.solution = Solution()
 
     def test_example_1(self):
-        self.assertEqual(self.solution.minimumRemovals([2,1,5], 2), 1)
+        self.assertEqual(self.solution.minRemoval([2,1,5], 2), 1)
 
     def test_example_2(self):
-        self.assertEqual(self.solution.minimumRemovals([1,6,2,9], 3), 2)
+        self.assertEqual(self.solution.minRemoval([1,6,2,9], 3), 2)
 
     def test_example_3(self):
-        self.assertEqual(self.solution.minimumRemovals([4,6], 2), 0)
+        self.assertEqual(self.solution.minRemoval([4,6], 2), 0)
 
 if __name__ == '__main__':
     unittest.main()
