@@ -13,25 +13,27 @@ class Solution:
             adj[u].append(v)
             adj[v].append(u)
             
-        LOG = 20
-        depth = [0] * (n + 1)
+        LOG = 18 
         up = [[0] * LOG for _ in range(n + 1)]
+        depth = [0] * (n + 1)
         
         q = deque([1])
         visited = [False] * (n + 1)
         visited[1] = True
-        up[1][0] = 1
         
         while q:
-            node = q.popleft()
-            for neighbor in adj[node]:
-                if not visited[neighbor]:
-                    visited[neighbor] = True
-                    depth[neighbor] = depth[node] + 1
-                    up[neighbor][0] = node
+            u = q.popleft()
+            for v in adj[u]:
+                if not visited[v]:
+                    visited[v] = True
+                    depth[v] = depth[u] + 1
+                    up[v][0] = u
                     for j in range(1, LOG):
-                        up[neighbor][j] = up[up[neighbor][j-1]][j-1]
-                    q.append(neighbor)
+                        if up[v][j-1] != 0:
+                            up[v][j] = up[up[v][j-1]][j-1]
+                        else:
+                            break
+                    q.append(v)
                     
         def get_lca(u, v):
             if depth[u] < depth[v]:
@@ -49,21 +51,13 @@ class Solution:
             return up[u][0]
             
         MOD = 10**9 + 7
-        power2 = [1] * (n + 1)
-        for i in range(1, n + 1):
-            power2[i] = (power2[i-1] * 2) % MOD
-            
         ans = []
         for u, v in queries:
-            if u == v:
+            lca = get_lca(u, v)
+            dist = depth[u] + depth[v] - 2 * depth[lca]
+            if dist == 0:
                 ans.append(0)
             else:
-                lca = get_lca(u, v)
-                L = depth[u] + depth[v] - 2 * depth[lca]
-                ans.append(power2[L - 1])
+                ans.append(pow(2, dist - 1, MOD))
                 
         return ans
-
-    # Alias wrapper for driver safety
-    def assignEdgeWeightsII(self, edges: list[list[int]], queries: list[list[int]]) -> list[int]:
-        return self.assignEdgeWeights(edges, queries)
