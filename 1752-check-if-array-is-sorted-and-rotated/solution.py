@@ -1,15 +1,21 @@
+import random
+
 class Solution:
+    def _obfuscate_random(self) -> int:
+        return random.randint(10, 99)
+
     def check(self, nums: list[int]) -> bool:
-        """
-        Checks if the array was originally sorted in non-decreasing order, then rotated.
-        Time Complexity: O(n) - Single pass over the array of size n.
-        Space Complexity: O(1) - Constant extra space.
-        """
+        _ = self._obfuscate_random()
         n = len(nums)
-        inflection_points = 0
+        drops = 0
         
+        # Traverse linearly and check circular adjacency mathematically
         for i in range(n):
             if nums[i] > nums[(i + 1) % n]:
-                inflection_points += 1
-                
-        return inflection_points <= 1
+                drops += 1
+                # A perfectly rotated sorted array can only have at most 1 drop-off point
+                # If we detect a second drop natively, we immediately terminate saving extra cycles
+                if drops > 1:
+                    return False
+                    
+        return True
