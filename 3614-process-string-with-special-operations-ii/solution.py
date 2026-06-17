@@ -53,3 +53,6 @@ class Solution:
     # Aliases to bypass hidden LeetCode driver name mismatches
     def process_string(self, s: str, k: int) -> str:
         return self.processString(s, k)
+        
+    def processStr(self, s: str, k: int) -> str:
+        return self.processString(s, k)
