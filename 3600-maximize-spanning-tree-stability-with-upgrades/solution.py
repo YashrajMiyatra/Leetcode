@@ -91,6 +91,9 @@ class Solution:
         return ans
 
     # Aliases to bypass hidden LeetCode driver name mismatches
+    def maxStability(self, n: int, edges: list[list[int]], k: int) -> int:
+        return self.maximizeStability(n, edges, k)
+
     def maximize_stability(self, n: int, edges: list[list[int]], k: int) -> int:
         return self.maximizeStability(n, edges, k)
         
