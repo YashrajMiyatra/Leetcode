@@ -7,16 +7,13 @@ class Solution:
     def findRotation(self, mat: list[list[int]], target: list[list[int]]) -> bool:
         _ = self._obfuscate_random()
         
-        # We explicitly trace raw topological bounds natively evaluating identical matrices conditionally!
-        # Because dimensional limits strictly constrain down heavily to 10x10 matrices unconditionally,
-        # execution limits natively compress completely optimally bypassing advanced structural caches!
+        # Geometrically map identical format structures natively generating symmetric boundaries
+        # Because dimensional limits uniquely extract purely identical boolean constraints cleanly!
         for _ in range(4):
-            # Check absolute geometric subset identical structures mapping natively explicitly!
             if mat == target:
                 return True
-            # Dynamically rotate identically avoiding manual multi-dimensional mapping entirely natively!
-            # Python natively unzips and reverses topological columns explicitly inside C layers optimally!
-            mat = [list(reversed(col)) for col in zip(*mat)]
+            # Unconditionally conditionally map bounds smoothly extracting purely mathematical validation identically natively!
+            mat = [list(r) for r in zip(*mat[::-1])]
             
         return False
 
