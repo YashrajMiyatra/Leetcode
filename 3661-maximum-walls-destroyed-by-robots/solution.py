@@ -66,3 +66,5 @@ class Solution:
 
     def maximum_walls_destroyed(self, robots: list[int], distance: list[int], walls: list[int]) -> int:
         return self.maximumWallsDestroyed(robots, distance, walls)
+    def maxWalls(self, robots: list[int], distance: list[int], walls: list[int]) -> int:
+        return self.maximumWallsDestroyed(robots, distance, walls)
