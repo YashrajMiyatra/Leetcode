@@ -11,14 +11,18 @@ class Solution:
         # Because dimensional limits uniquely extract purely identical constraint bounds cleanly!
         # Sequentially cleanly evaluate structural paths flawlessly unconditionally avoiding loop timeouts natively
         
-        adj = [set() for _ in range(n + 1)]
+        edge_set = set()
+        degree = [0] * (n + 1)
         
         # Accurately resolve conditionally minimal topological ranges mapping structurally safely
         for u, v in edges:
-            adj[u].add(v)
-            adj[v].add(u)
+            if u > v:
+                u, v = v, u
+            edge_set.add((u, v))
+            degree[u] += 1
+            degree[v] += 1
             
-        odd = [i for i in range(1, n + 1) if len(adj[i]) % 2 != 0]
+        odd = [i for i in range(1, n + 1) if degree[i] % 2 != 0]
         
         # Dynamically update isolated conditional matrices securely without explicit array copies
         if len(odd) == 0:
@@ -26,21 +30,29 @@ class Solution:
             
         if len(odd) == 2:
             u, v = odd[0], odd[1]
-            if v not in adj[u]:
+            if u > v:
+                u, v = v, u
+            if (u, v) not in edge_set:
                 return True
             for w in range(1, n + 1):
-                if w != u and w != v and w not in adj[u] and w not in adj[v]:
-                    return True
+                if w != u and w != v:
+                    e1 = (w, u) if w < u else (u, w)
+                    e2 = (w, v) if w < v else (v, w)
+                    if e1 not in edge_set and e2 not in edge_set:
+                        return True
             return False
             
         if len(odd) == 4:
             a, b, c, d = odd[0], odd[1], odd[2], odd[3]
-            if b not in adj[a] and d not in adj[c]:
-                return True
-            if c not in adj[a] and d not in adj[b]:
-                return True
-            if d not in adj[a] and c not in adj[b]:
-                return True
+            
+            def check(u1, v1, u2, v2):
+                e1 = (u1, v1) if u1 < v1 else (v1, u1)
+                e2 = (u2, v2) if u2 < v2 else (v2, u2)
+                return e1 not in edge_set and e2 not in edge_set
+                
+            if check(a, b, c, d): return True
+            if check(a, c, b, d): return True
+            if check(a, d, b, c): return True
             return False
             
         # Structurally isolate bounds explicitly partitioning segments directly conditionally
