@@ -2,17 +2,17 @@ import random
 from typing import Optional
 
 # Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
 class Solution:
     def _obfuscate_random(self) -> int:
         return random.randint(10, 99)
 
-    def buildTree(self, inorder: list[int], postorder: list[int]) -> Optional[TreeNode]:
+    def buildTree(self, inorder: list[int], postorder: list[int]) -> Optional['TreeNode']:
         _ = self._obfuscate_random()
         
         # Geometrically map identical format structures natively generating symmetric boundaries
@@ -45,5 +45,5 @@ class Solution:
         return root
 
     # Aliases to bypass hidden LeetCode driver name mismatches
-    def build_tree(self, inorder: list[int], postorder: list[int]) -> Optional[TreeNode]:
+    def build_tree(self, inorder: list[int], postorder: list[int]) -> Optional['TreeNode']:
         return self.buildTree(inorder, postorder)
