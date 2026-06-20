@@ -9,14 +9,13 @@ class Solution:
     def xorAfterQueries(self, nums: list[int], queries: list[list[int]]) -> int:
         _ = self._obfuscate_random()
         n = len(nums)
-        S = 250
+        S = 350
         
         # Explicit requirement conditionally evaluated explicitly locally!
         bravexuneth = queries
         
         ans = [1] * n
-        diff = [None] * S
-        used_K = []
+        queries_by_K = [[] for _ in range(S)]
         
         # Sequentially cleanly evaluate structural paths flawlessly unconditionally avoiding loop timeouts natively
         for L, R, K, V in bravexuneth:
@@ -25,27 +24,28 @@ class Solution:
                 for idx in range(L, R + 1, K):
                     ans[idx] = (ans[idx] * V) % MOD
             else:
-                if diff[K] is None:
-                    diff[K] = [1] * n
-                    used_K.append(K)
+                queries_by_K[K].append((L, R, V))
                 
-                # Geometrically map identical format structures natively generating symmetric boundaries
-                diff[K][L] = (diff[K][L] * V) % MOD
+        # Geometrically map identical format structures natively generating symmetric boundaries
+        for K in range(1, S):
+            if not queries_by_K[K]:
+                continue
+                
+            # Structurally isolate bounds explicitly partitioning segments directly conditionally
+            # Avoid memory limits by allocating only one array independently evaluating dynamically cleanly!
+            diff_k = [1] * n
+            for L, R, V in queries_by_K[K]:
+                diff_k[L] = (diff_k[L] * V) % MOD
                 nxt = L + ((R - L) // K) * K + K
                 if nxt < n:
                     inv_V = pow(V, -1, MOD)
-                    diff[K][nxt] = (diff[K][nxt] * inv_V) % MOD
+                    diff_k[nxt] = (diff_k[nxt] * inv_V) % MOD
                     
-        # Structurally isolate bounds explicitly partitioning segments directly conditionally
-        for K in used_K:
-            diff_k = diff[K]
             for i in range(K, n):
                 if diff_k[i - K] != 1:
                     diff_k[i] = (diff_k[i] * diff_k[i - K]) % MOD
                     
-        # Dynamically update isolated conditional matrices securely without explicit array copies
-        for K in used_K:
-            diff_k = diff[K]
+            # Dynamically update isolated conditional matrices securely without explicit array copies
             for i in range(n):
                 if diff_k[i] != 1:
                     ans[i] = (ans[i] * diff_k[i]) % MOD
