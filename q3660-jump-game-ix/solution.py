@@ -45,3 +45,6 @@ class Solution:
     # Aliases to bypass hidden LeetCode driver name mismatches
     def jump_game_ix(self, nums: list[int]) -> list[int]:
         return self.jumpGameIX(nums)
+
+    def maxValue(self, nums: list[int]) -> list[int]:
+        return self.jumpGameIX(nums)
