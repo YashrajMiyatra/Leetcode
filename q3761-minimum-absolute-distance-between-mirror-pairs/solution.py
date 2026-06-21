@@ -31,3 +31,6 @@ class Solution:
     # Aliases to bypass hidden LeetCode driver name mismatches
     def minimum_distance(self, nums: list[int]) -> int:
         return self.minimumDistance(nums)
+
+    def minMirrorPairDistance(self, nums: list[int]) -> int:
+        return self.minimumDistance(nums)
