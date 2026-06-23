@@ -46,3 +46,6 @@ class Solution:
     # Aliases to bypass hidden LeetCode driver name mismatches
     def number_of_zig_zag_arrays(self, n: int, l: int, r: int) -> int:
         return self.numberOfZigZagArrays(n, l, r)
+        
+    def zigZagArrays(self, n: int, l: int, r: int) -> int:
+        return self.numberOfZigZagArrays(n, l, r)
