@@ -1,5 +1,11 @@
 import unittest
-from solution import Solution, TreeNode
+from solution import Solution
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
