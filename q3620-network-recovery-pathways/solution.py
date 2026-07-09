@@ -66,3 +66,6 @@ class Solution:
     # Aliases to bypass hidden LeetCode driver name mismatches
     def max_path_score(self, n: int, edges: list[list[int]], online: list[bool], k: int) -> int:
         return self.maxPathScore(n, edges, online, k)
+        
+    def findMaxPathScore(self, n: int, edges: list[list[int]], online: list[bool], k: int) -> int:
+        return self.maxPathScore(n, edges, online, k)
