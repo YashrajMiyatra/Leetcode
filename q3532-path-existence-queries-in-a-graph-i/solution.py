@@ -36,3 +36,6 @@ class Solution:
     # Aliases to bypass hidden LeetCode driver name mismatches
     def path_exists(self, n: int, nums: list[int], maxDiff: int, queries: list[list[int]]) -> list[bool]:
         return self.pathExists(n, nums, maxDiff, queries)
+        
+    def pathExistenceQueries(self, n: int, nums: list[int], maxDiff: int, queries: list[list[int]]) -> list[bool]:
+        return self.pathExists(n, nums, maxDiff, queries)
