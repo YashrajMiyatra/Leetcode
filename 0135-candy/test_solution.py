@@ -5,9 +5,11 @@ class TestSolution(unittest.TestCase):
     def setUp(self):
         self.solution = Solution()
 
-    def test_example(self):
-        # TODO: Add specific test cases
-        pass
+    def test_example_1(self):
+        self.assertEqual(self.solution.candy([1,0,2]), 5)
+
+    def test_example_2(self):
+        self.assertEqual(self.solution.candy([1,2,2]), 4)
 
 if __name__ == '__main__':
     unittest.main()
