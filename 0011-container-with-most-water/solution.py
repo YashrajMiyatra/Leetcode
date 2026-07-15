@@ -23,10 +23,10 @@ class Solution:
             h_right = height[right]
             
             if h_left < h_right:
-                area = (right - left) * h_left
+                area = h_left * (right - left)
                 left += 1
             else:
-                area = (right - left) * h_right
+                area = h_right * (right - left)
                 right -= 1
                 
             if area > max_area:
