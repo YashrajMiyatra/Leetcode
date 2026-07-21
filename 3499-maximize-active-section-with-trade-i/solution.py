@@ -64,3 +64,6 @@ class Solution:
         
     def maxActiveSections(self, s: str) -> int:
         return self.maximizeActiveSection(s)
+        
+    def maxActiveSectionsAfterTrade(self, s: str) -> int:
+        return self.maximizeActiveSection(s)
