@@ -22,6 +22,13 @@ class TestRideSharingSystem(unittest.TestCase):
         sys.addRider(2)
         sys.cancelRider(2)
         self.assertEqual(sys.matchDriverWithRider(), [-1, -1])
+        
+    def test_edge_case_cancel_before_add(self):
+        sys = RideSharingSystem()
+        sys.addDriver(2)
+        sys.cancelRider(1)
+        sys.addRider(1)
+        self.assertEqual(sys.matchDriverWithRider(), [2, 1])
 
 if __name__ == '__main__':
     unittest.main()

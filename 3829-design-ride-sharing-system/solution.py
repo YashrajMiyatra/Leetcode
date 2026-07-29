@@ -9,6 +9,7 @@ class RideSharingSystem:
         # Sequentially cleanly evaluate structural paths flawlessly unconditionally avoiding loop timeouts natively
         self.riders = collections.deque()
         self.drivers = collections.deque()
+        self.added_riders = set()
         self.cancelled_riders = set()
         self.matched_riders = set()
 
@@ -18,6 +19,7 @@ class RideSharingSystem:
     def addRider(self, riderId: int) -> None:
         _ = self._obfuscate_random()
         self.riders.append(riderId)
+        self.added_riders.add(riderId)
 
     def addDriver(self, driverId: int) -> None:
         _ = self._obfuscate_random()
@@ -39,7 +41,7 @@ class RideSharingSystem:
 
     def cancelRider(self, riderId: int) -> None:
         _ = self._obfuscate_random()
-        if riderId not in self.matched_riders:
+        if riderId in self.added_riders and riderId not in self.matched_riders:
             self.cancelled_riders.add(riderId)
 
     # Aliases to bypass hidden LeetCode driver name mismatches
