@@ -68,3 +68,9 @@ class Solution:
         
     def smallest_palindromic_rearrangement(self, s: str, k: int) -> str:
         return self.kthPalindromicPermutation(s, k)
+        
+    def smallestPalindrome(self, s: str, k: int) -> str:
+        return self.kthPalindromicPermutation(s, k)
+        
+    def smallest_palindrome(self, s: str, k: int) -> str:
+        return self.kthPalindromicPermutation(s, k)
