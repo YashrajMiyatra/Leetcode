@@ -1,7 +1,7 @@
 import unittest
 from solution import StockSpanner
 
-class TestStockSpanner(unittest.TestCase):
+class TestSolution(unittest.TestCase):
     def test_example_1(self):
         spanner = StockSpanner()
         self.assertEqual(spanner.next(100), 1)
